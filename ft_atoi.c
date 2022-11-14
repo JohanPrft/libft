@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/10 14:46:36 by jprofit           #+#    #+#             */
+/*   Updated: 2022/11/14 11:42:53 by jprofit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//overflow long long int et max
+
+int	ft_is_number(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_is_whitespace(char c)
+{
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}
+
+int	ft_atoi(const char *str)
+{
+	long	res;
+	long	sign;
+
+	sign = 1;
+	res = 0;
+	while (ft_is_whitespace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (ft_is_number(*str))
+	{
+		res = (res * 10) + (*str - '0');
+		str++;
+	}
+	return (sign * res);
+}
