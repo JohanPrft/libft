@@ -6,18 +6,11 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:54:59 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 10:21:57 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 12:22:37 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	f(unsigned int i, char c)
-{
-	(void)i;
-	c += 3;
-	return (c);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -39,17 +32,4 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	str[i] = '\0';
 	return (str);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	origin[] = "abcde.";
-	char	*crypted;
-	char 	(*functionPtr)(unsigned int, char) = &f;
-
-	crypted = ft_strmapi(origin, functionPtr);
-	printf("%s\n", crypted);
-	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:40:54 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 09:21:36 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:15:33 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ischarset(char c, const char *set)
+static int	ischarset(char c, const char *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ischarset(char c, const char *set)
 	return (0);
 }
 
-size_t	skipfrontset(char const *s1, char const *set)
+static size_t	skipfrontset(char const *s1, char const *set)
 {
 	size_t	i;
 
@@ -36,7 +36,7 @@ size_t	skipfrontset(char const *s1, char const *set)
 	return (i);
 }
 
-size_t	skipbackset(char const *s1, char const *set)
+static size_t	skipbackset(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	len;

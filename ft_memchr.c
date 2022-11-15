@@ -6,11 +6,11 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:51:19 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/09 16:23:57 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:06:29 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

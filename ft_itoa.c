@@ -6,13 +6,13 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:46:40 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 15:52:12 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:14:33 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	lenint(int n)
+static int	lenint(int n)
 {
 	int	len;
 
@@ -30,7 +30,7 @@ int	lenint(int n)
 	return (len);
 }
 
-void	inttochar(char *res, unsigned	int n, unsigned	int len)
+static void	inttochar(char *res, unsigned	int n, unsigned	int len)
 {
 	res[len] = '\0';
 	len--;

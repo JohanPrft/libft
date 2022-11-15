@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_ft.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 09:40:38 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 13:39:23 by jprofit          ###   ########.fr       */
+/*   Created: 2022/11/15 09:45:40 by jprofit           #+#    #+#             */
+/*   Updated: 2022/11/15 09:49:10 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (s == NULL)
-		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	char	*str;
+
+	str = ft_itoa(n);
+	ft_putstr_fd(str, fd);
 }

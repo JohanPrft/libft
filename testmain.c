@@ -287,3 +287,23 @@ int	main(void)
 	printf("%i est %s", n, ft_itoa(n));
 	return (0);
 }
+
+char	f(unsigned int i, char c)
+{
+	(void)i;
+	c += 3;
+	return (c);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	origin[] = "abcde.";
+	char	*crypted;
+	char 	(*functionPtr)(unsigned int, char) = &f;
+
+	crypted = ft_strmapi(origin, functionPtr);
+	printf("%s\n", crypted);
+	return (0);
+}

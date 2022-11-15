@@ -6,11 +6,11 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:40:40 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 10:36:36 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:06:41 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 /*
 memmove() is used to copy from an overlapping source and destination area (say

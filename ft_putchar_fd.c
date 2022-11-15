@@ -6,9 +6,11 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:29:32 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 09:51:20 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:17:32 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

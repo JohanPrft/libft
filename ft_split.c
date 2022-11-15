@@ -6,14 +6,14 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:23:31 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 16:31:07 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:14:49 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdio.h> //gyuouhgvfytyguihgku5erv68546484
 
-int		aresame(char c1, char c2)
+static int		aresame(char c1, char c2)
 {
 	if (c1 == c2)
 		return (1);

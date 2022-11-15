@@ -6,13 +6,13 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:46:36 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 11:42:53 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:16:33 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //overflow long long int et max
 
-int	ft_is_number(char c)
+static int	ft_is_number(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -20,7 +20,7 @@ int	ft_is_number(char c)
 		return (0);
 }
 
-int	ft_is_whitespace(char c)
+static int	ft_is_whitespace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
