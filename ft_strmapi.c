@@ -6,24 +6,50 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:54:59 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 16:39:33 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 10:03:58 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
-// {
-// 	f(15, 'c')
-// }
+#include "libft.h"
 
-// ft_strmapi("ff", malloc)
-
-int	addint(int a, int b)
+char	f(unsigned int i, char c)
 {
-	return (a+b);
+	(void)i;
+	c += 3;
+	return (c);
 }
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		len;
+	int		i;
+	char	*str;
+
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc(sizeof(str) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = (*f)(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+#include <stdio.h>
 
 int	main(void)
 {
-	int	(*functionptr)(int, int);
-	
+	char	origin[] = "abcde.";
+	char	*crypted;
+	char 	(*functionPtr)(unsigned int, char) = &f;
+
+	crypted = ft_strmapi(origin, functionPtr);
+	printf("%s\n", crypted);
+	return (0);
 }
