@@ -6,21 +6,13 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:23:31 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 14:14:49 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/17 13:11:56 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> //gyuouhgvfytyguihgku5erv68546484
 
-static int		aresame(char c1, char c2)
-{
-	if (c1 == c2)
-		return (1);
-	return (0);
-}
-
-char	**createtab(char const *s, char c)
+static char	**createtab(char const *s, char c)
 {
 	char	**tab;
 	int		i;
@@ -31,20 +23,44 @@ char	**createtab(char const *s, char c)
 	nbtab = 0;
 	while (s[i])
 	{
-		while (aresame(s[i], c))
+		while (s[i] == c)
 			i++;
 		oldi = i;
-		while (!aresame(s[i], c) && s[i])
+		while (!(s[i] == c) && s[i])
 			i++;
 		if (i > oldi)
 			nbtab++;
 	}
-	printf("sizeofmalloc = %i\n", nbtab + 1);
 	tab = malloc(sizeof(tab) * (nbtab + 1));
+	if (tab == NULL)
+		return (NULL);
 	return (tab);
 }
 
-void	filltab(char	**tab, char const *s, char c)
+static char	**taberror(char	**tab, int iline)
+{
+	while (iline >= 0)
+	{
+		free(tab[iline]);
+		iline--;
+	}
+	free(tab);
+	return (NULL);
+}
+
+/* find the position of the first letter  */
+
+static int	bounds(const char *s, int *i, int *oldi, char c)
+{
+	while (s[*i] == c)
+		(*i)++;
+	*oldi = *i;
+	while (!(s[*i] == c) && s[*i])
+		(*i)++;
+	return (*i - *oldi);
+}
+
+static char	**filltab(char **tab, const char *s, char c)
 {
 	int	i;
 	int	j;
@@ -54,27 +70,50 @@ void	filltab(char	**tab, char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		while (aresame(s[i], c))
-			i++;
-		oldi = i;
-		while (!aresame(s[i], c) && s[i])
-			i++;
-		if (i > oldi)
+		if (bounds(s, &i, &oldi, c))
 		{
-			tab[j] = ft_calloc(i - oldi + 1, sizeof(*tab));
+			tab[j] = malloc(sizeof(*tab) * (i - oldi + 1));
+			if (tab == NULL)
+				return (taberror(tab, j));
 			ft_strlcpy(tab[j], &s[oldi], i - oldi + 1);
 			j++;
 		}
 	}
-	tab[j] = ft_calloc(1, sizeof(*tab));
+	tab[j] = malloc(sizeof(*tab) * 1);
+	if (tab[j] == NULL)
+		return (taberror(tab, j));
 	tab[j][0] = '\0';
+	return (tab);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 
+	if (s == NULL)
+		return (NULL);
 	tab = createtab(s, c);
-	filltab(tab, s, c);
+	if (tab == NULL)
+		return (NULL);
+	if (filltab(tab, s, c) == NULL)
+		return (NULL);
 	return (tab);
+}
+
+int	main(void)
+{
+	char	s[] = "jespere j'ai reussi misere ";
+	char	c = 'z';
+	char	**tab = 0;
+	int		i;
+
+	tab = ft_split(s, c);
+	i = 0;
+	while (tab[i][0])
+	{
+		printf("tab[%i] :	%s\n", i, tab[i]);
+		i++;
+	}
+	printf("tab[%i] :	%s\n", i, tab[i]);
+	return (0);
 }

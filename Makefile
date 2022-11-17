@@ -6,7 +6,7 @@
 #    By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 10:10:32 by jprofit           #+#    #+#              #
-#    Updated: 2022/11/15 14:03:02 by jprofit          ###   ########.fr        #
+#    Updated: 2022/11/15 14:43:09 by jprofit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,9 +46,11 @@ ${NAME}:	${OBJS}
 			${CC} ${FLAGS} -c $< -o $@
 
 clean:
-		rm ${OBJS}
+			rm ${OBJS}
 
-fclean:	clean
-		rm ${NAME}
+fclean:		clean
+			rm ${NAME}
 
-re:		clean all
+re:			clean all
+
+.PHONY:		all clean fclean re

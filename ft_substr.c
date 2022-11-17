@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:39:34 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/11 13:33:19 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/17 11:40:13 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
-	size_t	sublen;
 	int		i;
 
-	sublen = (size_t)ft_strlen(&s[start]);
-	if (sublen < len)
-		sub = malloc(sizeof(sub) * (sublen + 1));
-	else
-		sub = malloc(sizeof(sub) * (len));
-	if (sub == 0)
+	if (s == NULL || len == 0)
+		return (NULL);
+	if (start >= (unsigned int)ft_strlen(s))
+	{
+		sub = ft_calloc(1, sizeof(*sub));
+		if (sub == NULL)
+			return (NULL);
+		return (sub);
+	}
+	sub = ft_calloc((len + 1), sizeof(*sub));
+	if (sub == NULL)
 		return (NULL);
 	i = 0;
-	while (s[start] && len - 1 > 0)
+	while (s[start] && len > 0)
 	{
 		sub[i] = s[start];
 		i++;

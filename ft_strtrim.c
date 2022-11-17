@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:40:54 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 14:15:33 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/17 12:24:19 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static size_t	skipbackset(char const *s1, char const *set)
 	len = ft_strlen(s1) - 1;
 	while (ischarset(s1[len], set))
 		len--;
-	return (len);
+	return (len + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -55,9 +55,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	int		end;
 
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return ((char *)s1);
 	start = skipfrontset(s1, set);
 	end = skipbackset(s1, set);
-	res = malloc(sizeof(res) * (end - start + 1));
+	if (start > end)
+		return (ft_strdup(""));
+	res = malloc(sizeof(*res) * (end - start + 1));
 	if (res == 0)
 		return (NULL);
 	j = 0;
@@ -67,4 +73,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	res[j] = '\0';
 	return (res);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	s1[] = "aa";
+	char	set[] = "aa";
+
+	printf("%s\n", ft_strtrim(s1, set));
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:31:08 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 14:06:43 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/16 10:39:46 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	while (len > 0)
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = b;
+	while (i < len)
 	{
-		*(unsigned char *)b = (unsigned char)c;
-		b++;
-		len--;
+		str[i] = (unsigned char)c;
+		i++;
 	}
 	return (b);
 }

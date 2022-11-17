@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:53:29 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/14 16:34:16 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/16 13:26:29 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	cpy = malloc(sizeof(cpy) * (len + 1));
+	cpy = malloc(sizeof(*cpy) * (len + 1));
 	if (cpy == NULL)
 		return (NULL);
 	ft_strlcpy(cpy, s1, len + 1);

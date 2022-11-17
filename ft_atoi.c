@@ -6,11 +6,11 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:46:36 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 14:16:33 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/15 16:51:10 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//overflow long long int et max
+#include "libft.h"
 
 static int	ft_is_number(char c)
 {

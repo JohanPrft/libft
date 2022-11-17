@@ -6,24 +6,19 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:32:33 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 13:40:19 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/16 11:41:04 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	len;
-	int	i;
 
 	if (s == NULL)
 		return ;
 	len = ft_strlen(s);
-	i = 0;
-	while (i < len)
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	write(fd, &s[0], len);
 }

@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:46:40 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 14:14:33 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/16 12:36:11 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ char	*ft_itoa(int n)
 	len = lenint(n);
 	if (n < 0)
 	{
-		res = ft_calloc(len + 2, sizeof(res));
+		res = ft_calloc(len + 2, sizeof(*res));
 		n *= -1;
 		res[0] = '-';
 		inttochar(res, n, len);
 	}
 	else
 	{
-		res = ft_calloc(len + 1, sizeof(res));
+		res = ft_calloc(len + 1, sizeof(*res));
 		inttochar(res, n, len);
 	}
 	return (res);

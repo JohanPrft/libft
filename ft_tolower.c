@@ -6,11 +6,13 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:47:08 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/09 15:17:54 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/16 10:08:08 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	return (c + 32);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
