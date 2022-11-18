@@ -6,7 +6,7 @@
 #    By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 10:10:32 by jprofit           #+#    #+#              #
-#    Updated: 2022/11/15 14:43:09 by jprofit          ###   ########.fr        #
+#    Updated: 2022/11/18 11:55:10 by jprofit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 
 NAME	= libft.a
 
-CC		= gcc
+CC		= cc
 
 FLAGS	= -Wall -Wextra -Werror
 
@@ -39,8 +39,7 @@ HEADER	=	libft.h
 all: 		${NAME}
 
 ${NAME}:	${OBJS}
-			ar rc $@ $^
-			ranlib $@
+			ar rcs $@ $^
 
 %.o:		%.c ${HEADER} Makefile
 			${CC} ${FLAGS} -c $< -o $@

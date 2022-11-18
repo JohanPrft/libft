@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:54:59 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/16 12:35:50 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:56:20 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*str;
 
-	if (s == NULL)
+	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
 	str = malloc(sizeof(*str) * (len + 1));

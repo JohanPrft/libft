@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:46:36 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/15 16:51:10 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 11:41:50 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static int	ft_is_number(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 static int	ft_is_whitespace(char c)

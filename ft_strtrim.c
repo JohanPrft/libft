@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:40:54 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 12:24:19 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 11:20:30 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,17 @@ static size_t	skipfrontset(char const *s1, char const *set)
 static size_t	skipbackset(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	len;
 
-	i = 0;
-	len = ft_strlen(s1) - 1;
-	while (ischarset(s1[len], set))
-		len--;
-	return (len + 1);
+	i = ft_strlen(s1);
+	if (i == 0)
+		return (i);
+	while (i > 0)
+	{
+		i--;
+		if (!ischarset(s1[i], set))
+			break ;
+	}
+	return ((size_t)i + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -73,15 +77,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	res[j] = '\0';
 	return (res);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	s1[] = "aa";
-	char	set[] = "aa";
-
-	printf("%s\n", ft_strtrim(s1, set));
-	return (0);
 }

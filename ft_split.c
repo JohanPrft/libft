@@ -6,114 +6,93 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:23:31 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 13:11:56 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/17 17:33:01 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**createtab(char const *s, char c)
+static int	lastchar(const char *s, char c, int i)
 {
-	char	**tab;
-	int		i;
-	int		oldi;
-	int		nbtab;
-
-	i = 0;
-	nbtab = 0;
-	while (s[i])
+	if (s[i] != c)
 	{
-		while (s[i] == c)
-			i++;
-		oldi = i;
-		while (!(s[i] == c) && s[i])
-			i++;
-		if (i > oldi)
-			nbtab++;
+		if (s[i + 1] == c || s[i + 1] == '\0')
+		{
+			return (1);
+		}
 	}
-	tab = malloc(sizeof(tab) * (nbtab + 1));
-	if (tab == NULL)
-		return (NULL);
-	return (tab);
+	return (0);
 }
 
-static char	**taberror(char	**tab, int iline)
+static int	len_str(const char *s, char c)
 {
-	while (iline >= 0)
+	int	i;
+
+	i = 0;
+	while (s[i] != c && s[i] != '\0')
+		i++;
+	return (i);
+}
+
+static char	**mallocerror(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i] != NULL)
 	{
-		free(tab[iline]);
-		iline--;
+		free(tab[i]);
+		i++;
 	}
-	free(tab);
+	free (tab);
 	return (NULL);
 }
 
-/* find the position of the first letter  */
-
-static int	bounds(const char *s, int *i, int *oldi, char c)
+static char	**ft_writestr(char **tab, const char *s, char c, int nbr)
 {
-	while (s[*i] == c)
-		(*i)++;
-	*oldi = *i;
-	while (!(s[*i] == c) && s[*i])
-		(*i)++;
-	return (*i - *oldi);
-}
-
-static char	**filltab(char **tab, const char *s, char c)
-{
-	int	i;
-	int	j;
-	int	oldi;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (bounds(s, &i, &oldi, c))
-		{
-			tab[j] = malloc(sizeof(*tab) * (i - oldi + 1));
-			if (tab == NULL)
-				return (taberror(tab, j));
-			ft_strlcpy(tab[j], &s[oldi], i - oldi + 1);
-			j++;
-		}
-	}
-	tab[j] = malloc(sizeof(*tab) * 1);
-	if (tab[j] == NULL)
-		return (taberror(tab, j));
-	tab[j][0] = '\0';
-	return (tab);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**tab;
-
-	if (s == NULL)
-		return (NULL);
-	tab = createtab(s, c);
-	if (tab == NULL)
-		return (NULL);
-	if (filltab(tab, s, c) == NULL)
-		return (NULL);
-	return (tab);
-}
-
-int	main(void)
-{
-	char	s[] = "jespere j'ai reussi misere ";
-	char	c = 'z';
-	char	**tab = 0;
 	int		i;
+	int		j;
+	int		len;
+	char	*str;
 
-	tab = ft_split(s, c);
 	i = 0;
-	while (tab[i][0])
+	while (i < nbr)
 	{
-		printf("tab[%i] :	%s\n", i, tab[i]);
+		while (*s == c)
+			s++;
+		len = len_str(s, c);
+		str = malloc(sizeof(char) * (len + 1));
+		if (!str)
+			return (mallocerror(tab));
+		j = 0;
+		while (j < len)
+			str[j++] = *s++;
+		str[j] = '\0';
+		tab[i] = str;
 		i++;
 	}
-	printf("tab[%i] :	%s\n", i, tab[i]);
-	return (0);
+	tab[i] = 0;
+	return (tab);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**tab;
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+	{
+		if (lastchar(s, c, i) == 1)
+			count++;
+		i++;
+	}
+	tab = malloc(sizeof(*tab) * (count + 1));
+	if (!tab)
+		return (NULL);
+	return (ft_writestr(tab, s, c, count));
 }
