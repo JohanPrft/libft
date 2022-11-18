@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:45:58 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/11 14:31:39 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:55:17 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	len;
-	int	i;
-	int	j;
+	size_t	len;
+	size_t	i;
+	size_t	j;
 
 	len = ft_strlen(src);
 	i = 0;

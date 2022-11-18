@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:21:52 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 14:56:13 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:56:45 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	size_t	temp;
 
 	if (needle[0] == '\0')

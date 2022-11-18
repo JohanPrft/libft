@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:40:54 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/18 11:20:30 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:58:19 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ischarset(char c, const char *set)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (set[i] != '\0')
@@ -55,9 +55,9 @@ static size_t	skipbackset(char const *s1, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
-	int		start;
-	int		j;
-	int		end;
+	size_t	start;
+	size_t	j;
+	size_t	end;
 
 	if (!s1)
 		return (NULL);

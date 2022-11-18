@@ -6,7 +6,7 @@
 #    By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 10:10:32 by jprofit           #+#    #+#              #
-#    Updated: 2022/11/18 11:55:10 by jprofit          ###   ########.fr        #
+#    Updated: 2022/11/18 17:08:34 by jprofit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,27 +29,32 @@ SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	\
 			ft_strmapi.c	ft_striteri.c	ft_putchar_fd.c	ft_putstr_fd.c	\
 			ft_putendl_fd.c	ft_putnbr_fd.c
 
-OBJS	=	$(SRCS:.c=.o)
+OBJDIR	=	objdir
+
+OBJS	=	$(SRCS:%.c=%.o)
 
 HEADER	=	libft.h
 
 # **************************************************************************** #
 # RULES
 
-all: 		${NAME}
+all: 			${NAME}
 
-${NAME}:	${OBJS}
-			ar rcs $@ $^
+${NAME}:		${OBJS}
+				ar rcs $@ $^
 
-%.o:		%.c ${HEADER} Makefile
-			${CC} ${FLAGS} -c $< -o $@
+${OBJDIR}:
+				mkdir -p ${OBJDIR}
+
+%.o:	%.c ${HEADER} Makefile
+				${CC} ${FLAGS} -c $< -o $@
 
 clean:
-			rm ${OBJS}
+				rm ${OBJS}
 
-fclean:		clean
-			rm ${NAME}
+fclean:			clean
+				rm ${NAME}
 
-re:			clean all
+re:				clean all
 
-.PHONY:		all clean fclean re
+.PHONY:			all clean fclean re

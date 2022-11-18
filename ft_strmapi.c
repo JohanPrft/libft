@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:54:59 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 18:56:20 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:59:28 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		len;
-	int		i;
+	size_t	len;
+	size_t	i;
 	char	*str;
 
 	if (!s || !f)

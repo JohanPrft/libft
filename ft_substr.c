@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:39:34 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 15:29:46 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:58:33 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
-	int		i;
+	size_t	i;
 
 	if (s == NULL)
 		return (NULL);

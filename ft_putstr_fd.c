@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:32:33 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/16 11:41:04 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:51:18 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	len;
+	size_t	len;
 
 	if (s == NULL)
 		return ;

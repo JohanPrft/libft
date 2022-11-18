@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:04:39 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 15:31:32 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:07:15 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 # define LIBFT_H
 # include <stdlib.h>
-# include <stdio.h> ////////////////////////////////////////////////////
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

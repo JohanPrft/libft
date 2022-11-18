@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 13:25:18 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 11:37:29 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:55:26 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		len;
+	size_t	len;
 	char	*str;
 
 	if (s1 == NULL || s2 == NULL)

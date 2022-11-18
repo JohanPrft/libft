@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:23:31 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/17 17:33:01 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:51:44 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static char	**ft_writestr(char **tab, const char *s, char c, int nbr)
 char	**ft_split(const char *s, char c)
 {
 	char	**tab;
-	int		i;
+	size_t	i;
 	int		count;
 
 	i = 0;
