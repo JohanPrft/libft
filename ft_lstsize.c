@@ -6,16 +6,20 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:45:56 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/18 17:54:37 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/21 17:04:52 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"t;
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
-	if (lst == NULL)
+	int	i;
+
+	if (!lst)
 		return (0);
-	while (lst->next != NULL)
+	i = 0;
+	while (lst != NULL && ++i)
 		lst = lst->next;
+	return (i);
 }

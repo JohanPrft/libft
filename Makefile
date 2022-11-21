@@ -6,7 +6,7 @@
 #    By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 10:10:32 by jprofit           #+#    #+#              #
-#    Updated: 2022/11/18 17:08:34 by jprofit          ###   ########.fr        #
+#    Updated: 2022/11/21 15:25:58 by jprofit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,16 @@ SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	\
 			ft_strmapi.c	ft_striteri.c	ft_putchar_fd.c	ft_putstr_fd.c	\
 			ft_putendl_fd.c	ft_putnbr_fd.c
 
+SRCSBNS	= 	ft_lstnew.c		ft_lstadd_front.c	ft_lstadd_front.c			\
+			ft_lstsize.c	ft_lstlast.c		ft_lstadd_back.c			\
+			ft_lstdelone.c	ft_lstclear.c		ft_lstiter.c				\
+			ft_lstmap.c
+
 OBJDIR	=	objdir
 
 OBJS	=	$(SRCS:%.c=%.o)
+
+OBJSBNS	=	$(SRCSBNS:%.c=%.o)
 
 HEADER	=	libft.h
 
@@ -39,6 +46,9 @@ HEADER	=	libft.h
 # RULES
 
 all: 			${NAME}
+
+bonus:			${OBJSBNS}
+				ar rcs ${NAME} $^
 
 ${NAME}:		${OBJS}
 				ar rcs $@ $^
@@ -55,6 +65,9 @@ clean:
 fclean:			clean
 				rm ${NAME}
 
+bclean:
+				rm ${OBJSBNS}
+
 re:				clean all
 
-.PHONY:			all clean fclean re
+.PHONY:			all bonus clean fclean re
