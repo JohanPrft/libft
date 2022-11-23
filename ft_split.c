@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:23:31 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:44 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/22 10:03:24 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static int	len_str(const char *s, char c)
 	return (i);
 }
 
-static char	**mallocerror(char **tab)
+static char	**mallocerror(char **tab, int last)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i] != NULL)
+	while (i < last)
 	{
 		free(tab[i]);
 		i++;
@@ -63,7 +63,7 @@ static char	**ft_writestr(char **tab, const char *s, char c, int nbr)
 		len = len_str(s, c);
 		str = malloc(sizeof(char) * (len + 1));
 		if (!str)
-			return (mallocerror(tab));
+			return (mallocerror(tab, i));
 		j = 0;
 		while (j < len)
 			str[j++] = *s++;
@@ -71,7 +71,7 @@ static char	**ft_writestr(char **tab, const char *s, char c, int nbr)
 		tab[i] = str;
 		i++;
 	}
-	tab[i] = 0;
+	tab[i] = NULL;
 	return (tab);
 }
 

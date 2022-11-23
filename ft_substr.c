@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:39:34 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/18 16:58:33 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/22 09:17:15 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	if (start >= (unsigned int)ft_strlen(s))
 	{
 		sub = ft_calloc(1, sizeof(*sub));

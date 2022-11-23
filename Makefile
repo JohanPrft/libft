@@ -6,7 +6,7 @@
 #    By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 10:10:32 by jprofit           #+#    #+#              #
-#    Updated: 2022/11/21 15:25:58 by jprofit          ###   ########.fr        #
+#    Updated: 2022/11/23 16:44:07 by jprofit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,6 @@
 # ARGUMENTS
 
 NAME	= libft.a
-
-CC		= cc
 
 FLAGS	= -Wall -Wextra -Werror
 
@@ -29,16 +27,13 @@ SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	\
 			ft_strmapi.c	ft_striteri.c	ft_putchar_fd.c	ft_putstr_fd.c	\
 			ft_putendl_fd.c	ft_putnbr_fd.c
 
-SRCSBNS	= 	ft_lstnew.c		ft_lstadd_front.c	ft_lstadd_front.c			\
-			ft_lstsize.c	ft_lstlast.c		ft_lstadd_back.c			\
-			ft_lstdelone.c	ft_lstclear.c		ft_lstiter.c				\
-			ft_lstmap.c
+SRCSBNS	= 	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c				\
+			ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c				\
+			ft_lstclear.c	ft_lstiter.c		ft_lstmap.c
 
-OBJDIR	=	objdir
+OBJS	=	$(SRCS:.c=.o)
 
-OBJS	=	$(SRCS:%.c=%.o)
-
-OBJSBNS	=	$(SRCSBNS:%.c=%.o)
+OBJSBNS	=	$(SRCSBNS:.c=.o)
 
 HEADER	=	libft.h
 
@@ -48,26 +43,21 @@ HEADER	=	libft.h
 all: 			${NAME}
 
 bonus:			${OBJSBNS}
-				ar rcs ${NAME} $^
+				$(AR) rcs ${NAME} $^
 
 ${NAME}:		${OBJS}
-				ar rcs $@ $^
+				$(AR) rcs $@ $^
 
-${OBJDIR}:
-				mkdir -p ${OBJDIR}
-
-%.o:	%.c ${HEADER} Makefile
+%.o:			%.c ${HEADER} Makefile
 				${CC} ${FLAGS} -c $< -o $@
 
 clean:
-				rm ${OBJS}
+				$(RM) ${OBJS} ${OBJSBNS}
 
 fclean:			clean
-				rm ${NAME}
+				$(RM) ${NAME}
 
-bclean:
-				rm ${OBJSBNS}
-
-re:				clean all
+re:				fclean
+				$(MAKE) all
 
 .PHONY:			all bonus clean fclean re

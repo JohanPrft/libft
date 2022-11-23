@@ -1,0 +1,334 @@
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	str1[10];
+	char	str2[10];
+	int		i;
+	int		len;
+
+	len = 10;
+	memset(str1, 1, len);
+	ft_memset(str2, 2, len);
+	i = 0;
+	while (i < len + 10)
+	{
+		printf("memset %i = %u\n", i, str1[i]);
+		printf("ft_memset %i = %u\n\n", i, str2[i]);
+		i++;
+	}
+	return (0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	str1[10];
+	char	str2[10];
+	int		i;
+	int		len;
+
+	len = 10;
+	memset(str1, 'A', len);
+	ft_memset(str2, 'A', len);
+	i = 0;
+	while (i < len)
+	{
+		printf("memset %i = %u\n", i, str1[i]);
+		printf("ft_memset %i = %u\n\n", i, str2[i]);
+		i++;
+	}
+	return (0);
+}
+
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	dst1[6];
+	char	dst2[6];
+	char	src[]= "merci";
+	int		len;
+
+	len = 6;
+	memcpy(dst1, src, len);
+	ft_memcpy(dst2, src, len);
+	printf("memcpy = %s\n", dst1);
+	printf("ft_memcpy = %s", dst2);
+	return (0);
+}
+
+
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "abcd";
+	//char	str1[] = "bcd";
+
+	ft_memmove((void *)(str), (void *)(str + 1), 2);
+	printf("%s\n", str);
+	return (0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	dst1[10];
+	char	dst2[10];
+	char	src[]= "merci";
+	int		len;
+
+	len = 6;
+	printf("strlcpy = %lu\n", strlcpy(dst1, src, len));
+	printf("ft_strlcpy = %lu\n", ft_strlcpy(dst2, src, len));
+	printf("strlcpy = %s\n", dst1);
+	printf("ft_strlcpy = %s\n", dst2);
+	return (0);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	dst1[11] = "a";
+	char	dst2[11] = "a";
+	char	src[]= "merci";
+	int		dstsize;
+
+	dstsize = 0;
+
+	printf("%zu, strlcat = %s\n",strlcat(dst1, src, dstsize), dst1);
+
+	printf("%zu, ft_strlcat = %s", ft_strlcat(dst2, src, dstsize), dst2);
+	return (0);
+	//dstsize = 0 et dst1 n'a pas de '/0' = erreur
+}
+
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "Cherche dans cette string";
+	char	c = '\0';
+
+	printf("strchr = %s\n", strchr(str, (int)c));
+	printf("ft_strchr = %s\n", ft_strchr(str, (int)c));
+	return (0);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "Cherche dans cette string";
+	char	c = 'c';
+
+	printf("strrchr = %s\n", strrchr(str, (int)c));
+	printf("ft_strrchr = %s\n", ft_strrchr(str, (int)c));
+	return (0);
+}
+
+
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str1[11] = "aaaaa";
+	char	str2[11] = "aaaaa";
+	int		n;
+
+	n = 10;
+	printf("strncmp = %d\n", strncmp(str1, str2, n));
+	printf("ft_strncmp = %d", ft_strncmp(str1, str2, n));
+	return (0);
+}
+
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = {0, 1, 2 ,3 ,4 ,5};
+	int		c = 2;
+	int		n = 3;
+
+	printf("memchr = %p\n", memchr(str, (int)c, n));
+	printf("ft_memchr = %p\n", ft_memchr(str, (int)c, n));
+	return (0);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str1[20] = "Compare ces strings";
+	char	str2[20] = "Compare ces strings";
+	int		n;
+
+	n = 0;
+	printf("memcmp = %d\n", memcmp(str1, str2, n));
+	printf("ft_memcmp = %d", ft_memcmp(str1, str2, n));
+	return (0);
+}
+
+// #include "libft.h"
+
+// char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+// {
+// 	char	*res;
+
+// 	if (*needle == '\0')
+// 		return ((char *)haystack);
+// 	res = NULL;
+// 	while (*haystack != '\0' && len > 0)
+// 	{
+// 		if (*haystack == *needle && ft_strncmp(haystack, needle,
+// 				ft_strlen(needle)) == 0 && len >= ft_strlen(needle))
+// 			return ((char *)haystack);
+// 		haystack++;
+// 		len--;
+// 	}
+// 	return (res);
+// }
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char	haystack[] = "mississippi";
+	char	needle[] = "si";
+	int		n;
+
+	n = 5;
+	printf("strnstr = %s\n", strnstr(haystack, needle, n));
+	printf("ft_strnstr = %s", ft_strnstr(haystack, needle, n));
+	return (0);
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main (void)
+{
+	char	str[] = " 	  	 -199999991";
+
+	printf("atoi = %d\n", atoi(str));
+	printf("ft_atoi = %d", ft_atoi(str));
+	return (0);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char	s[5]="nype";
+	char	*cpy1;
+	char	*cpy2;
+	int		i;
+
+    cpy1 = strdup(s);
+	cpy2 = ft_strdup(s);
+	i = 0;
+	while (i < 5)
+		printf("%c ", cpy1[i++]);
+	printf("\n");
+	i = 0;
+	while (i < 5)
+		printf("%c ", cpy2[i++]);
+    return 0;
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*str = "ma string";
+
+	printf("%s\n", ft_substr(str, 0, 10));
+	return (0);
+}
+
+int	main(void)
+{
+	char	*s1 = "";
+	char	*set = "";
+
+	printf("%s\n", ft_strtrim(s1, set));
+	return (0);
+}
+
+
+int	main(void)
+{
+	char	s[] = "split  ||this|for|me|||||!|";
+	char	c = 'z';
+	char	**tab = 0;
+	int		i;
+
+	tab = ft_split(s, '|');
+	i = 0;
+	while (tab[i][0])
+	{
+		printf("tab[%i] :	{%s}\n", i, tab[i]);
+		i++;
+	}
+	printf("tab[%i] :	%s\n", i, tab[i]);
+	return (0);
+}
+
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	n = -2147483648;
+
+	printf("%i est %s", n, ft_itoa(n));
+	return (0);
+}
+
+
+char	f(unsigned int i, char c)
+{
+	(void)i;
+	c += 3;
+	return (c);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	char	origin[] = "abcde.";
+	char	*crypted;
+	char 	(*functionPtr)(unsigned int, char) = &f;
+
+	crypted = ft_strmapi(origin, functionPtr);
+	printf("%s\n", crypted);
+	return (0);
+}
+
+int	main(void)
+{
+	ft_putnbr_fd(-2147483647 -1, 1);
+	return (0);
+}
